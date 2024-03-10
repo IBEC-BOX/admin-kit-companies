@@ -2,12 +2,15 @@
 
 namespace AdminKit\Companies\UI\Filament\Resources;
 
-use AdminKit\Core\Forms\Components\TranslatableTabs;
 use Filament\Forms;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Resources\Resource;
 use AdminKit\Companies\Models\Company;
+use Filament\Forms\Components\Tabs\Tab;
+use AdminKit\Core\Forms\Components\TranslatableTabs;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use AdminKit\Companies\UI\Filament\Resources\CompanyResource\Pages;
+use AdminKit\Companies\UI\Filament\Resources\CompanyResource\RelationManagers;
 
 class CompanyResource extends Resource
 {
@@ -19,13 +22,46 @@ class CompanyResource extends Resource
     {
         return $form
             ->schema([
-                TranslatableTabs::make(fn ($locale) => Forms\Components\Tabs\Tab::make($locale)->schema([
-                    Forms\Components\TextInput::make('title')
-                        ->label(__('admin-kit-companies::companies.resource.title'))
-                        ->required($locale === app()->getLocale()),
-                ])),
-            ])
-            ->columns(1);
+                SpatieMediaLibraryFileUpload::make('background')
+                    ->label(__('admin-kit-companies::companies.resource.background'))
+                    ->collection('background')
+                    ->image()
+                    ->columnSpan(2),
+
+                TranslatableTabs::make(fn ($locale) => Tab::make($locale)->schema([
+                    Forms\Components\Section::make(__('admin-kit-companies::companies.resource.general'))->schema([
+                        Forms\Components\TextInput::make('title.'.$locale)
+                            ->label(__('admin-kit-companies::companies.resource.title'))
+                            ->required(),
+                        Forms\Components\RichEditor::make('text.'.$locale)
+                            ->label(__('admin-kit-companies::companies.resource.description'))
+                            ->required(),
+                    ]),
+
+                    Forms\Components\Section::make(__('admin-kit-companies::companies.resource.history'))->schema([
+                        Forms\Components\TextInput::make('history_title.'.$locale)
+                            ->label(__('admin-kit-companies::companies.resource.title')),
+                        Forms\Components\RichEditor::make('history_text.'.$locale)
+                            ->label(__('admin-kit-companies::companies.resource.description')),
+                    ]),
+
+                    Forms\Components\Section::make(__('admin-kit-companies::companies.resource.mission'))->schema([
+                        Forms\Components\TextInput::make('mission_title.'.$locale)
+                            ->label(__('admin-kit-companies::companies.resource.title')),
+                        Forms\Components\RichEditor::make('mission_text.'.$locale)
+                            ->label(__('admin-kit-companies::companies.resource.description')),
+                        SpatieMediaLibraryFileUpload::make('mission_attachments.'.$locale)
+                            ->label(__('admin-kit-companies::companies.resource.attachments'))
+                            ->collection('mission_attachments.'.$locale)
+                            ->multiple()
+                            ->image(),
+                        SpatieMediaLibraryFileUpload::make('mission_background.'.$locale)
+                            ->label(__('admin-kit-companies::companies.resource.background'))
+                            ->collection('mission_background.'.$locale)
+                            ->image(),
+                    ]),
+                ]))->columnSpan(2),
+            ]);
     }
 
     public static function table(Tables\Table $table): Tables\Table
@@ -36,7 +72,8 @@ class CompanyResource extends Resource
                     ->label(__('admin-kit-companies::companies.resource.id'))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')
-                    ->label(__('admin-kit-companies::companies.resource.title')),
+                    ->label(__('admin-kit-companies::companies.resource.title'))
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('admin-kit-companies::companies.resource.created_at')),
             ])
@@ -57,7 +94,8 @@ class CompanyResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\HistoriesRelationManager::class,
+            RelationManagers\ManagersRelationManager::class,
         ];
     }
 
@@ -76,11 +114,6 @@ class CompanyResource extends Resource
     }
 
     public static function getPluralLabel(): ?string
-    {
-        return __('admin-kit-companies::companies.resource.plural_label');
-    }
-
-    public static function getNavigationGroup(): ?string
     {
         return __('admin-kit-companies::companies.resource.plural_label');
     }

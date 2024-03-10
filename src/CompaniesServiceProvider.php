@@ -21,7 +21,11 @@ class CompaniesServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasTranslations()
-            ->hasMigration('create_admin_kit_companies_table')
+            ->hasMigrations([
+                'create_admin_kit_companies_table',
+                'create_admin_kit_company_histories_table',
+                'create_admin_kit_company_managers_table',
+            ])
             ->hasCommand(CompaniesCommand::class);
     }
 

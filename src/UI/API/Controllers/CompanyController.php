@@ -4,17 +4,12 @@ declare(strict_types=1);
 
 namespace AdminKit\Companies\UI\API\Controllers;
 
-use AdminKit\Companies\Models\Company;
+use AdminKit\Companies\Actions\GetCompany;
 
 class CompanyController extends Controller
 {
-    public function index()
+    public function showFirst()
     {
-        return Company::all();
-    }
-
-    public function show(int $id)
-    {
-        return Company::findOrFail($id);
+        return app(GetCompany::class)->run();
     }
 }

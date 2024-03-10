@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('admin_kit_company_histories', function (Blueprint $table) {
+            $table->id();
+
+            // add fields
+            $table->foreignId('company_id')
+                ->constrained('admin_kit_companies')
+                ->cascadeOnDelete();
+
+            $table->jsonb('title')->nullable();
+            $table->jsonb('text')->nullable();
+
+            $table->integer('sort')->nullable();
+
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('admin_kit_company_histories');
+    }
+};

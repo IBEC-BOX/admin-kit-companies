@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -12,7 +12,14 @@ return new class extends Migration
             $table->id();
 
             // add fields
-            $table->jsonb('title')->default('{}');
+            $table->jsonb('title');
+            $table->jsonb('text');
+
+            $table->jsonb('history_title')->nullable();
+            $table->jsonb('history_text')->nullable();
+
+            $table->jsonb('mission_title')->nullable();
+            $table->jsonb('mission_text')->nullable();
 
             $table->timestamps();
         });
