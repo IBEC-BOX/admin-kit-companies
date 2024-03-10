@@ -2,12 +2,12 @@
 
 namespace AdminKit\Companies\UI\Filament\Resources;
 
+use AdminKit\Companies\Models\Company;
+use AdminKit\Companies\UI\Filament\Resources\CompanyResource\Pages;
 use AdminKit\Core\Forms\Components\TranslatableTabs;
 use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use AdminKit\Companies\Models\Company;
-use AdminKit\Companies\UI\Filament\Resources\CompanyResource\Pages;
 
 class CompanyResource extends Resource
 {

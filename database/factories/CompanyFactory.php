@@ -2,8 +2,8 @@
 
 namespace AdminKit\Companies\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use AdminKit\Companies\Models\Company;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CompanyFactory extends Factory
 {

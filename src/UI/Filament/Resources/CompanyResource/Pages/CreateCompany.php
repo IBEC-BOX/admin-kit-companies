@@ -2,8 +2,8 @@
 
 namespace AdminKit\Companies\UI\Filament\Resources\CompanyResource\Pages;
 
-use Filament\Resources\Pages\CreateRecord;
 use AdminKit\Companies\UI\Filament\Resources\CompanyResource;
+use Filament\Resources\Pages\CreateRecord;
 
 class CreateCompany extends CreateRecord
 {

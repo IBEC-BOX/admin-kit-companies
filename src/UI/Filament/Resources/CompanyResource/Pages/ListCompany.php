@@ -2,9 +2,9 @@
 
 namespace AdminKit\Companies\UI\Filament\Resources\CompanyResource\Pages;
 
+use AdminKit\Companies\UI\Filament\Resources\CompanyResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
-use AdminKit\Companies\UI\Filament\Resources\CompanyResource;
 
 class ListCompany extends ListRecords
 {

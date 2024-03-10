@@ -2,9 +2,9 @@
 
 namespace AdminKit\Companies\UI\Filament\Resources\CompanyResource\Pages;
 
+use AdminKit\Companies\UI\Filament\Resources\CompanyResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
-use AdminKit\Companies\UI\Filament\Resources\CompanyResource;
 
 class EditCompany extends EditRecord
 {

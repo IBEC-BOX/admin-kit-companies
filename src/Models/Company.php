@@ -2,10 +2,10 @@
 
 namespace AdminKit\Companies\Models;
 
+use AdminKit\Companies\Database\Factories\CompanyFactory;
 use AdminKit\Core\Abstracts\Models\AbstractModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Translatable\HasTranslations;
-use AdminKit\Companies\Database\Factories\CompanyFactory;
 
 class Company extends AbstractModel
 {
