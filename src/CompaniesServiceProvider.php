@@ -2,10 +2,10 @@
 
 namespace AdminKit\Companies;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use AdminKit\Companies\Commands\CompaniesCommand;
 use AdminKit\Companies\Providers\RouteServiceProvider;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class CompaniesServiceProvider extends PackageServiceProvider
 {
