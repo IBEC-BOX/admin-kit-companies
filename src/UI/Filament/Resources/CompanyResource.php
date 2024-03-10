@@ -2,15 +2,15 @@
 
 namespace AdminKit\Companies\UI\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Resources\Resource;
 use AdminKit\Companies\Models\Company;
-use Filament\Forms\Components\Tabs\Tab;
-use AdminKit\Core\Forms\Components\TranslatableTabs;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use AdminKit\Companies\UI\Filament\Resources\CompanyResource\Pages;
 use AdminKit\Companies\UI\Filament\Resources\CompanyResource\RelationManagers;
+use AdminKit\Core\Forms\Components\TranslatableTabs;
+use Filament\Forms;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\Tabs\Tab;
+use Filament\Resources\Resource;
+use Filament\Tables;
 
 class CompanyResource extends Resource
 {

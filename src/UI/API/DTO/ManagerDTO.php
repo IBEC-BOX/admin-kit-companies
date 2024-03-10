@@ -2,9 +2,8 @@
 
 namespace AdminKit\Companies\UI\API\DTO;
 
-use Spatie\LaravelData\Data;
-use AdminKit\Companies\Models\History;
 use AdminKit\Companies\Models\Manager;
+use Spatie\LaravelData\Data;
 
 class ManagerDTO extends Data
 {
@@ -13,8 +12,7 @@ class ManagerDTO extends Data
         public string $bio,
         public string $text,
         public string $photo,
-    )
-    {
+    ) {
     }
 
     public static function fromModel(Manager $manager): ManagerDTO

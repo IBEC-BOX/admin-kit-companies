@@ -2,33 +2,32 @@
 
 namespace AdminKit\Companies\UI\API\DTO;
 
-use Spatie\LaravelData\Data;
-use Illuminate\Support\Collection;
 use AdminKit\Companies\Models\Company;
-use Spatie\LaravelData\DataCollection;
+use Illuminate\Support\Collection;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 
 class CompanyDTO extends Data
 {
     public function __construct(
-        public string         $title,
-        public string         $text,
-        public ?string         $background,
+        public string $title,
+        public string $text,
+        public ?string $background,
 
-        public ?string         $history_title,
-        public ?string         $history_text,
+        public ?string $history_title,
+        public ?string $history_text,
         #[DataCollectionOf(HistoryDTO::class)]
         public DataCollection $history_years,
 
-        public ?string         $mission_title,
-        public ?string         $mission_text,
-        public ?Collection     $mission_attachments,
-        public ?string         $mission_background,
+        public ?string $mission_title,
+        public ?string $mission_text,
+        public ?Collection $mission_attachments,
+        public ?string $mission_background,
 
         #[DataCollectionOf(ManagerDTO::class)]
         public DataCollection $management,
-    )
-    {
+    ) {
     }
 
     public static function fromModel(Company $company): CompanyDTO

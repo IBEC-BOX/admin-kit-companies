@@ -2,12 +2,12 @@
 
 namespace AdminKit\Companies\UI\Filament\Resources\CompanyResource\RelationManagers;
 
-use Filament\Forms;
-use Filament\Tables;
-use Filament\Forms\Components\Tabs\Tab;
-use Illuminate\Database\Eloquent\Model;
 use AdminKit\Core\Forms\Components\TranslatableTabs;
+use Filament\Forms;
+use Filament\Forms\Components\Tabs\Tab;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables;
+use Illuminate\Database\Eloquent\Model;
 
 class ManagersRelationManager extends RelationManager
 {
