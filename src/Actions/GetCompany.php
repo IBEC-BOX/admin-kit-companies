@@ -4,11 +4,10 @@ namespace AdminKit\Companies\Actions;
 
 use AdminKit\Companies\Models\Company;
 use AdminKit\Companies\UI\API\DTO\CompanyDTO;
-use Spatie\LaravelData\Data;
 
 class GetCompany
 {
-    public function run(): Data
+    public function run(): CompanyDTO
     {
         $company = Company::query()
             ->firstOrFail();
