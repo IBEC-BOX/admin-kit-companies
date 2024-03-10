@@ -1,17 +1,17 @@
 <?php
 
-namespace VendorName\Skeleton\UI\Filament\Resources;
+namespace AdminKit\Companies\UI\Filament\Resources;
 
 use AdminKit\Core\Forms\Components\TranslatableTabs;
 use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use VendorName\Skeleton\Models\SingleName;
-use VendorName\Skeleton\UI\Filament\Resources\SingleNameResource\Pages;
+use AdminKit\Companies\Models\Company;
+use AdminKit\Companies\UI\Filament\Resources\CompanyResource\Pages;
 
-class SingleNameResource extends Resource
+class CompanyResource extends Resource
 {
-    protected static ?string $model = SingleName::class;
+    protected static ?string $model = Company::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -21,7 +21,7 @@ class SingleNameResource extends Resource
             ->schema([
                 TranslatableTabs::make(fn ($locale) => Forms\Components\Tabs\Tab::make($locale)->schema([
                     Forms\Components\TextInput::make('title')
-                        ->label(__('skeleton::skeleton_without_prefix.resource.title'))
+                        ->label(__('admin-kit-companies::companies.resource.title'))
                         ->required($locale === app()->getLocale()),
                 ])),
             ])
@@ -33,12 +33,12 @@ class SingleNameResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                    ->label(__('skeleton::skeleton_without_prefix.resource.id'))
+                    ->label(__('admin-kit-companies::companies.resource.id'))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')
-                    ->label(__('skeleton::skeleton_without_prefix.resource.title')),
+                    ->label(__('admin-kit-companies::companies.resource.title')),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label(__('skeleton::skeleton_without_prefix.resource.created_at')),
+                    ->label(__('admin-kit-companies::companies.resource.created_at')),
             ])
             ->defaultSort('id', 'desc')
             ->filters([
@@ -64,24 +64,24 @@ class SingleNameResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSingleName::route('/'),
-            'create' => Pages\CreateSingleName::route('/create'),
-            'edit' => Pages\EditSingleName::route('/{record}/edit'),
+            'index' => Pages\ListCompany::route('/'),
+            'create' => Pages\CreateCompany::route('/create'),
+            'edit' => Pages\EditCompany::route('/{record}/edit'),
         ];
     }
 
     public static function getLabel(): ?string
     {
-        return __('skeleton::skeleton_without_prefix.resource.label');
+        return __('admin-kit-companies::companies.resource.label');
     }
 
     public static function getPluralLabel(): ?string
     {
-        return __('skeleton::skeleton_without_prefix.resource.plural_label');
+        return __('admin-kit-companies::companies.resource.plural_label');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return __('skeleton::skeleton_without_prefix.resource.plural_label');
+        return __('admin-kit-companies::companies.resource.plural_label');
     }
 }
