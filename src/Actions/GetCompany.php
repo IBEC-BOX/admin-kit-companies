@@ -2,9 +2,9 @@
 
 namespace AdminKit\Companies\Actions;
 
-use Spatie\LaravelData\Data;
 use AdminKit\Companies\Models\Company;
 use AdminKit\Companies\UI\API\DTO\CompanyDTO;
+use Spatie\LaravelData\Data;
 
 class GetCompany
 {

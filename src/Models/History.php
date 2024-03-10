@@ -2,9 +2,9 @@
 
 namespace AdminKit\Companies\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @property-read int $company_id
