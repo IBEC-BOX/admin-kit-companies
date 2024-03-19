@@ -26,7 +26,9 @@ class CompanyResource extends Resource
                     ->label(__('admin-kit-companies::companies.resource.background'))
                     ->collection('background')
                     ->image()
-                    ->columnSpan(2),
+                    ->columnSpan(2)
+                    ->optimize('webp')
+                    ->resize(30),
 
                 TranslatableTabs::make(fn ($locale) => Tab::make($locale)->schema([
                     Forms\Components\Section::make(__('admin-kit-companies::companies.resource.general'))->schema([
@@ -54,11 +56,15 @@ class CompanyResource extends Resource
                             ->label(__('admin-kit-companies::companies.resource.attachments'))
                             ->collection('mission_attachments.'.$locale)
                             ->multiple()
-                            ->image(),
+                            ->image()
+                            ->optimize('webp')
+                            ->resize(30),
                         SpatieMediaLibraryFileUpload::make('mission_background.'.$locale)
                             ->label(__('admin-kit-companies::companies.resource.background'))
                             ->collection('mission_background.'.$locale)
-                            ->image(),
+                            ->image()
+                            ->optimize('webp')
+                            ->resize(30),
                     ]),
                 ]))->columnSpan(2),
             ]);

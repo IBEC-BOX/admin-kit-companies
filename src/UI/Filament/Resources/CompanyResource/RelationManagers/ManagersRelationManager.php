@@ -22,7 +22,10 @@ class ManagersRelationManager extends RelationManager
                 Forms\Components\SpatieMediaLibraryFileUpload::make('image')
                     ->label(__('admin-kit-companies::companies.relations.managers.photo'))
                     ->required()
-                    ->columnSpan(2),
+                    ->columnSpan(2)
+                    ->image()
+                    ->optimize('webp')
+                    ->resize(30),
                 TranslatableTabs::make(fn ($locale) => Tab::make($locale)->schema([
                     Forms\Components\TextInput::make('name.'.$locale)
                         ->label(__('admin-kit-companies::companies.relations.managers.name'))
