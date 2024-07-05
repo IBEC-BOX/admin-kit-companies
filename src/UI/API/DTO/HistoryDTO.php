@@ -13,8 +13,7 @@ class HistoryDTO extends Data
     public function __construct(
         public string $title,
         public string $text,
-    ) {
-    }
+    ) {}
 
     public static function fromModel(History $history): HistoryDTO
     {

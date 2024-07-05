@@ -2,6 +2,4 @@
 
 namespace AdminKit\Companies;
 
-class Companies
-{
-}
+class Companies {}

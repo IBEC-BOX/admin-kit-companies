@@ -15,8 +15,7 @@ class ManagerDTO extends Data
         public string $bio,
         public string $text,
         public string $photo,
-    ) {
-    }
+    ) {}
 
     public static function fromModel(Manager $manager): ManagerDTO
     {

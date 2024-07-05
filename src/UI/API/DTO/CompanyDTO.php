@@ -30,8 +30,7 @@ class CompanyDTO extends Data
 
         #[DataCollectionOf(ManagerDTO::class)]
         public DataCollection $management,
-    ) {
-    }
+    ) {}
 
     public static function fromModel(Company $company): CompanyDTO
     {
