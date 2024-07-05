@@ -5,11 +5,14 @@ namespace AdminKit\Companies\UI\API\DTO;
 use AdminKit\Companies\Models\Company;
 use Illuminate\Support\Collection;
 use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Spatie\LaravelData\Concerns\WithDeprecatedCollectionMethod;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\DataCollection;
 
 class CompanyDTO extends Data
 {
+    use WithDeprecatedCollectionMethod;
+
     public function __construct(
         public string $title,
         public string $text,
@@ -27,8 +30,7 @@ class CompanyDTO extends Data
 
         #[DataCollectionOf(ManagerDTO::class)]
         public DataCollection $management,
-    ) {
-    }
+    ) {}
 
     public static function fromModel(Company $company): CompanyDTO
     {
